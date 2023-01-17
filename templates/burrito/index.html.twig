@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Burrito{% endblock %}
+
+
+{% block body %}
+
+    <h3>Burrito</h3>
+    <table border>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Size</th>
+            <th>Ingredients</th>
+            <th>Delivery Method</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for burrito in burrito %}
+
+            <tr>
+                <td>{{ burrito.id }}</td>
+                <td>{{ burrito.name }}</td>
+                <td>{{ burrito.address }}</td>
+                <td>{{ burrito.phoneNumber }}</td>
+                <td>{{ burrito.email }}</td>
+                <td>{{ burrito.size }}</td>
+                <td>{{ burrito.ingredients|join(', ') }}</td>
+                <td>{{ burrito.deliveryMethod }}</td>
+                <td> <a href="{{ path('burrito_edit', {id:burrito.id}) }}">edit</a> </td>
+                <td> <a href="{{ path('burrito_delete', {id:burrito.id}) }}">delete</a> </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <a href="{{ path('burrito_new') }}">New Burrito</a>
+
+{% endblock %}

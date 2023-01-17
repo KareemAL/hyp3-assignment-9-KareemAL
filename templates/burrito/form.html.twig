@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Burrito Form{% endblock %}
+
+{% block body %}
+    <h3>Burrito Form</h3>
+
+    {{ form(form, {'attr': {'novalidate':'novalidate'}}) }}
+
+{% endblock %}
